@@ -18,7 +18,7 @@ let readFile = (callback) =>{
      fs.readFile("index.html", (err, data) => {
         let pageContent = data.toString();
         let infoP="";
-        let infoPC="";
+        let infoC="";
         let provedores = getProveedores();
         let clientes = getClientes();
         for(i=0; i<provedores.length;i++){
@@ -26,7 +26,7 @@ let readFile = (callback) =>{
         }
 
         for(j=0; j<clientes.length;j++){
-            infoP+="<tr><th>"+clientes[j].idcliente+"</th><td>"+clientes[j].nombrecompania+"</td><td>"+clientes[j].nombrecontacto+"</td></tr>";
+            infoC+="<tr><th>"+clientes[j].idcliente+"</th><td>"+clientes[j].nombrecompania+"</td><td>"+clientes[j].nombrecontacto+"</td></tr>";
         }
 
 
@@ -34,7 +34,7 @@ let readFile = (callback) =>{
             "{{replaceP}}",infoP
         );
         pageContent = pageContent.replace(
-            "{{replaceC}}",infoc
+            "{{replaceC}}",infoC
         );
         callback(data);
      });
